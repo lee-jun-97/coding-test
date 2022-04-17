@@ -10,8 +10,7 @@ public class S5_4796 {
 
         Scanner scan = new Scanner(System.in);
 
-        List<String> strArr = new ArrayList<String>();
-
+        List<String> strList = new ArrayList<>();
 
         while(true) {
             int i = 1;
@@ -21,14 +20,14 @@ public class S5_4796 {
                 break;
             }
 
-            strArr.add(cal(c, i));
+            strList.add(cal(c, i));
             i++;
         }
 
         scan.close();
 
-        for( String i : strArr ) {
-            System.out.println(i);
+        for( String str : strList ) {
+            System.out.println(str);
         }        
     }
 
@@ -36,21 +35,13 @@ public class S5_4796 {
 
         String[] strArr = input.split(" ");
 
-        List<Integer> intArr = new ArrayList<Integer>();
+        int L = Integer.parseInt(strArr[0]);
+        int P = Integer.parseInt(strArr[1]);
+        int V = Integer.parseInt(strArr[2]);
 
-        for ( int j = 0 ; j < strArr.length; j++ ) {
-            intArr.add(Integer.parseInt(strArr[j]));
-        }
-
-        int cnt = intArr.get(2) / intArr.get(1) ;
-        int cnt2 = intArr.get(2) % intArr.get(1) ;
-
-        int result = (cnt*intArr.get(0)) + cnt2 ;
-        
-        String str = "Case " + i + ": " + result; 
-
-
-        return str ;
+        int result = (V / P) * L + Math.min((V % P), L ) ;
+    
+        return "Case " + i + ": " + result; 
     }
     
 }
