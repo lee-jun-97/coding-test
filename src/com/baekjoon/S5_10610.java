@@ -13,6 +13,8 @@ public class S5_10610 {
         int sum = 0 ;
         StringBuilder sb = new StringBuilder();
 
+        scan.close();
+
         // 입력받은 수 char 배열로 변경
         char[] charArr = num.toCharArray();
         
