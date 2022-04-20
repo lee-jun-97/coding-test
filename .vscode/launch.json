@@ -1,0 +1,84 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch intTostring",
+            "request": "launch",
+            "mainClass": "com.programmers.intTostring",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch S5_10610",
+            "request": "launch",
+            "mainClass": "com.baekjoon.S5_10610",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
+            "name": "Launch S5_1343",
+            "request": "launch",
+            "mainClass": "com.baekjoon.S5_1343",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
+            "name": "Launch S5_15904",
+            "request": "launch",
+            "mainClass": "com.baekjoon.S5_15904",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
+            "name": "Launch S5_16435",
+            "request": "launch",
+            "mainClass": "com.baekjoon.S5_16435",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
+            "name": "Launch S5_1789",
+            "request": "launch",
+            "mainClass": "com.baekjoon.S5_1789",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
+            "name": "Launch S5_19939",
+            "request": "launch",
+            "mainClass": "com.baekjoon.S5_19939",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
+            "name": "Launch S5_2828",
+            "request": "launch",
+            "mainClass": "com.baekjoon.S5_2828",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
+            "name": "Launch S5_4796",
+            "request": "launch",
+            "mainClass": "com.baekjoon.S5_4796",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
+            "name": "Launch S5_9237",
+            "request": "launch",
+            "mainClass": "com.baekjoon.S5_9237",
+            "projectName": "Study"
+        }
+    ]
+}
