@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch S3_1449",
+            "request": "launch",
+            "mainClass": "com.baekjoon.S3_1449",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
+            "name": "Launch S3_11047",
+            "request": "launch",
+            "mainClass": "com.baekjoon.S3_11047",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
+            "name": "Launch S3_11399",
+            "request": "launch",
+            "mainClass": "com.baekjoon.S3_11399",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
             "name": "Launch intTostring",
             "request": "launch",
             "mainClass": "com.programmers.intTostring",
