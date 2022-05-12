@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch S5_7568",
+            "request": "launch",
+            "mainClass": "com.baekjoon.S5_7568",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
+            "name": "Launch S5_2609",
+            "request": "launch",
+            "mainClass": "com.baekjoon.S5_2609",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
+            "name": "Launch S5_2751",
+            "request": "launch",
+            "mainClass": "com.baekjoon.S5_2751",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
+            "name": "Launch S5_2941",
+            "request": "launch",
+            "mainClass": "com.baekjoon.S5_2941",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
             "name": "Launch S3_19941",
             "request": "launch",
             "mainClass": "com.baekjoon.S3_19941",
