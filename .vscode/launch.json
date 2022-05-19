@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch S5_2581",
+            "request": "launch",
+            "mainClass": "com.baekjoon.S5_2581",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
+            "name": "Launch S5_1427",
+            "request": "launch",
+            "mainClass": "com.baekjoon.S5_1427",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
+            "name": "Launch S5_1181",
+            "request": "launch",
+            "mainClass": "com.baekjoon.S5_1181",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
+            "name": "Launch SSG_1",
+            "request": "launch",
+            "mainClass": "com.programmers.SSG_1",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
+            "name": "Launch SSG_4",
+            "request": "launch",
+            "mainClass": "com.programmers.SSG_4",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
             "name": "Launch S5_7568",
             "request": "launch",
             "mainClass": "com.baekjoon.S5_7568",

@@ -11,6 +11,8 @@ public class S5_2609 {
         int n1 = scan.nextInt();
         int n2 = scan.nextInt();
 
+        scan.close();
+
         System.out.println(gcd(Math.max(n1, n2), Math.min(n1, n2)));
 
         System.out.println((n1 * n2) / gcd(Math.max(n1, n2), Math.min(n1, n2)));

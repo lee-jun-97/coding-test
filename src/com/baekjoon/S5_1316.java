@@ -15,15 +15,13 @@ public class S5_1316 {
             arr[i] = scan.nextLine();
         }
 
+        scan.close();
+
         for(String str : arr) {
             for(int i=0; i<str.length(); i++) {
                 char[] chArr = new char[str.length()];
 
                 chArr[i] = str.charAt(i);
-
-                if(i < str.length()) {
-                    
-                }
                 
             }
         }

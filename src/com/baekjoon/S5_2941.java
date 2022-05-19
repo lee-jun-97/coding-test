@@ -16,11 +16,7 @@ public class S5_2941 {
 
         for(String i : c) {
             if(input.contains(i)) {
-                int n1 = input.length();
-
                 input = input.replaceAll(i,"*");
-
-                int n2 = input.length();
             }
         }
 

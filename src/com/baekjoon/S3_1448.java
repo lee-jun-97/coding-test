@@ -17,13 +17,11 @@ public class S3_1448 {
             input[i] = scan.nextInt();
         }
 
+        scan.close();
+
         Arrays.sort(input);
 
         int result = 0;
-
-        for(int i=0; i < n; i++) {
-            int sum = input[i] + input[i+1] ;
-        }
 
         System.out.println(result);
     }
