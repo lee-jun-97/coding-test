@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch S5_11651",
+            "request": "launch",
+            "mainClass": "com.baekjoon.S5_11651",
+            "projectName": "Study"
+        },
+        {
+            "type": "java",
             "name": "Launch S5_1436",
             "request": "launch",
             "mainClass": "com.baekjoon.S5_1436",
