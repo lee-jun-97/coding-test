@@ -13,6 +13,7 @@ public class S5_1676 {
 
         scan.close();
 
+        // Factorial 계산할 시 값이 거대해져서 BigInteger 사용.
         BigInteger sum = new BigInteger("1");
 
         for(int i=1; i<=n; i++) {
