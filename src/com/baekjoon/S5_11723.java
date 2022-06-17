@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
+// TO-DO : bit 연산자 이용하여 수정해아 함.
 public class S5_11723 {
 
     static Set<String> set = new HashSet<>();
@@ -13,21 +14,27 @@ public class S5_11723 {
         
         Scanner scan = new Scanner(System.in);
 
-        String n = scan.nextLine();
+        int n = scan.nextInt();
 
-        for(int i=0; i<Integer.parseInt(n); i++) {
-            String[] temp = scan.nextLine().split(" ");
-            switch(temp[0]) {
-                case "add" :  set.add(temp[1]); break;
-                case "check" : check(temp[1]); break;
-                case "remove" : set.remove(temp[1]); break;
-                case "toggle" : toggle(temp[1]); break;
+        String[][] arr = new String[n][2];
+
+        for(int i=0; i<n; i++) {
+            arr[i] = scan.nextLine().split(" ");
+        }
+
+        scan.close();
+
+        for(int i=0; i<n; i++) {
+            switch(arr[i][0]) {
+                case "add" :  set.add(arr[i][1]); break;
+                case "check" : check(arr[i][1]); break;
+                case "remove" : set.remove(arr[i][1]); break;
+                case "toggle" : toggle(arr[i][1]); break;
                 case "all" : all(); break;
                 case "empty" : set.clear(); break;
             }
         }
 
-        scan.close();
 
         sb.toString();
 
