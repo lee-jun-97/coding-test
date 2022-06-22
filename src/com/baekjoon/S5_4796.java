@@ -1,47 +1,52 @@
 package com.baekjoon;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class S5_4796 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
 
-        Scanner scan = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
 
-        List<String> strList = new ArrayList<>();
+        int i = 1;
 
         while(true) {
-            int i = 1;
-            String c = scan.nextLine();
-
-            if ( c.equals("0 0 0")) {
+            String str = br.readLine();
+            if(str.equals("0 0 0")) {
                 break;
             }
 
-            strList.add(cal(c, i));
-            i++;
+            String[] input = str.split(" ");
+
+            int count = cal(input);
+
+            String result = "Case " + i + ": " + count;
+            sb.append(result).append("\n");
         }
 
-        scan.close();
-
-        for( String str : strList ) {
-            System.out.println(str);
-        }        
+        sb.deleteCharAt(sb.length()-1);
+        System.out.println(sb.toString());
+        
     }
 
-    public static String cal(String input, int i) {
+    static int cal(String[] input) {
 
-        String[] strArr = input.split(" ");
+        int count = 0;
 
-        int L = Integer.parseInt(strArr[0]);
-        int P = Integer.parseInt(strArr[1]);
-        int V = Integer.parseInt(strArr[2]);
+        int l = Integer.parseInt(input[0]);
+        int p = Integer.parseInt(input[1]);
+        int v = Integer.parseInt(input[2]);
 
-        int result = (V / P) * L + Math.min((V % P), L ) ;
-    
-        return "Case " + i + ": " + result; 
+        count = (v / p) * l ;
+        if((v%p) <= l) {
+            count += (v % p);
+        } else {
+            count += l;
+        }
+
+        return count;
     }
-    
+
 }
