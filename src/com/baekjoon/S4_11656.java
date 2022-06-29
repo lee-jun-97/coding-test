@@ -17,8 +17,10 @@ public class S4_11656 {
 
         int n = sb.length();
 
+        // list에 맨 처음 값이 안 들어가서 바로 넣어줌.
         list.add(sb.toString());
 
+        // 맨 앞 자리 하나씩 지움.
         for(int i=0; i<n-1; i++) {
             list.add(sb.deleteCharAt(0).toString());
         }

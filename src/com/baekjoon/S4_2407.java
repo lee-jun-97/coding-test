@@ -13,6 +13,9 @@ public class S4_2407 {
 
             scan.close();
 
+            // int 사용하면 Overflow 발생함.
+            // 그래서 Long 사용했지만 그래도 부족함.
+            // 그래서 BigInteger 사용함.
             BigInteger p = BigInteger.ONE;
             BigInteger c = BigInteger.ONE;
 
