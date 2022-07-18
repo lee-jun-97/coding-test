@@ -1,42 +1,39 @@
 package com.baekjoon.silver5;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.StringTokenizer;
 
 public class S5_16435 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         
-        Scanner scan = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String input = scan.nextLine();
-        String[] inputArr = input.split(" ");
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int n = Integer.parseInt(inputArr[0]);
+        int n = Integer.parseInt(st.nextToken());
+        int l = Integer.parseInt(st.nextToken());
 
-        int[] nArr = new int[n];
+        String[] input = br.readLine().split(" ");
+        List<Integer> list = new ArrayList<>();
 
-        int result = Integer.parseInt(inputArr[1]);
-
-        for(int i=0; i < n; i++) {
-            nArr[i] = scan.nextInt();
+        for(int i=0; i<n; i++) {
+            list.add(Integer.parseInt(input[i]));
         }
 
-        scan.close();
+        Collections.sort(list);
 
-        Arrays.sort(nArr);
-
-        if( Integer.parseInt(inputArr[1]) < nArr[0] ) {
-            result = Integer.parseInt(inputArr[1]);
-        } else {
-            for (int i=0; i<nArr.length; i++) {
-                if(result >= nArr[i]) {
-                    result += 1;
-                }
+        for(int i=0; i<n; i++) {
+            if(list.get(i) <= l) {
+                l++;
             }
         }
-
-        System.out.println(result);
+        
+        System.out.println(l);
 
     }
     
