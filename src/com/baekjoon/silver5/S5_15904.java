@@ -1,34 +1,35 @@
 package com.baekjoon.silver5;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class S5_15904 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        Scanner scan = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     
-        String input = scan.nextLine();
+        String input  = br.readLine();
 
-        String[] chArr = {"U", "C", "P", "C"};
-        String[] strArr = input.split("");
-        String result = "";
-        int i = 0;
+        StringBuilder sb = new StringBuilder();
 
-        for ( String j : strArr ) {
-            if ( j.equals(chArr[i]) ) {
-                i++;
+        char[] chArr = {'U', 'C', 'P', 'C'};
+        String result = "I hate UCPC";
+        int j = 0;
+
+        for(int i=0; i<input.length(); i++) {
+            if(input.charAt(i) == chArr[j]) {
+                j++;
             }
 
-            if ( i == 4 ) {
+            if(j == 4) {
                 result = "I love UCPC";
                 break;
             }
-
-            result = "I hate UCPC";
         }
-        scan.close();
+        
+        sb.append(result);
 
-        System.out.println(result);
+        System.out.println(sb.toString());
     }
 }
