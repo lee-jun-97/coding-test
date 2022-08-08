@@ -54,11 +54,13 @@ public class S2_11725_list {
 
         visit[start] = true;
 
-        for(int i=1; i<=n; i++) {
+        int length = graph.get(start).size();
+
+        for(int i=0; i<length; i++) {
             int temp = graph.get(start).get(i); 
             if(visit[temp] == false) {
                 parent[temp] = start;
-                dfs(i);
+                dfs(temp);
             }
         }
 
