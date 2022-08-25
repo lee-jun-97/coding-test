@@ -13,19 +13,8 @@ public class S3_20365 {
         int n = Integer.parseInt(br.readLine());
         String input = br.readLine();
 
-        int count_B = 0;
-        int count_R = 0;
-
-        for(int i=0; i<n; i++) {
-            if(input.charAt(i) == 'R') {
-                count_R++;
-            } else {
-                count_B++;
-            }
-        }
-
-        StringTokenizer st_1 = new StringTokenizer(input, Math.max(count_B, count_R)==count_B?"B":"R");
-        StringTokenizer st_2 = new StringTokenizer(input, Math.min(count_B, count_R)==count_B?"B":"R");
+        StringTokenizer st_1 = new StringTokenizer(input, "B");
+        StringTokenizer st_2 = new StringTokenizer(input, "R");
 
         System.out.println(Math.min(st_1.countTokens(), st_2.countTokens())+1);
 
