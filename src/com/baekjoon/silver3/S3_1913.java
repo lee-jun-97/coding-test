@@ -23,94 +23,48 @@ public class S3_1913 {
         int goal_x = 0;
         int goal_y = 0;
 
-        boolean direction = false;
-
         while(true) {
 
-            arr[x][y]  = num;
-
-            if(direction) {
-                for(int i=1; i<=count; i++) {
-                    x++;
-                    if(x >= 0 && x < n) {
-                        arr[x][y] = ++num;
-                        if(num == goal) {
-                            goal_x = x;
-                            goal_y = y;
-                        }
-                    } else {
-                        break;
-                    }
-                }
-
-                if(num == n*n) {
-                    break;
-                }
-
-                for(int i=1; i<=count; i++) {
-                    y--;
-                    if(y >= 0 && y < n) {
-                        arr[x][y] = ++num;
-                        if(num == goal) {
-                            goal_x = x;
-                            goal_y = y;
-                        }
-                    } else {
-                        break;
-                    }
-                }
-
-                if(num == n*n) {
-                    break;
-                }
-
-            } else {
-                for(int i=1; i<=count; i++) {
-                    x--;
-                    if(x >= 0 && x < n) {
-                        arr[x][y] = ++num;
-                        if(num == goal) {
-                            goal_x = x;
-                            goal_y = y;
-                        }
-                    } else {
-                        break;
-                    }
-                }
-
-                if(num == n*n) {
-                    break;
-                }
-
-                for(int i=1; i<=count; i++) {
-                    y++;
-                    if(y >= 0 && y < n) {
-                        arr[x][y] = ++num;
-                        if(num == goal) {
-                            goal_x = x;
-                            goal_y = y;
-                        }
-                    } else {
-                        break;
-                    }
-                }
-
-                if(num == n*n) {
-                    break;
-                }
-                
+            for(int i=0; i<count; i++) {
+                arr[x--][y] = num++;
             }
+
+            if(num-1 == n*n) {
+                break;
+            }
+
+            for(int i=0; i<count; i++) {
+                arr[x][y++] = num++;
+            }
+
             count++;
-            direction = !direction;
+
+            for(int i=0; i<count; i++) {
+                arr[x++][y] = num++;
+            }
+
+            for(int i=0; i<count; i++) {
+                arr[x][y--] = num++;
+            }
+
+            count++;
         }
+
+        StringBuilder sb = new StringBuilder();
 
         for(int i=0; i<n; i++) {
             for(int j=0; j<n; j++) {
-                System.out.print(arr[i][j]+ " ");
+                sb.append(arr[i][j]+ " ");
+                if(arr[i][j] == goal) {
+                    goal_x = i+1;
+                    goal_y = j+1;
+                }
             }
-            System.out.println();
+            sb.append("\n");
         }
 
-        System.out.println((goal_x + 1) + " " + (goal_y + 1));
+        sb.deleteCharAt(sb.length() - 1);
+        System.out.println(sb.toString());
+        System.out.println(goal_x + " " + goal_y);
     }
 }
