@@ -1,47 +1,48 @@
 package com.baekjoon.silver5;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class S5_2581 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        Scanner scan = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int n1 = scan.nextInt();
-        int n2 = scan.nextInt();
-
-        scan.close();
+        int m = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
         int sum = 0;
         int min = Integer.MAX_VALUE;
 
-        for(int i=n1; i<=n2; i++) {
+        for(int i=m; i<=n; i++) {
 
-            if(isPrimeNumber(i)) {
-                if(min > i ) {
-                    min = i;
+            // 1은 소수가 아님.
+            // 조건문 하나 때문에 계속 틀렸음.
+            if(i == 1) {
+                continue;
+            }
+
+            boolean isOk = true;
+
+            for(int j=2; j<=Math.sqrt((double)i); j++) {
+                if(i % j == 0) {
+                    isOk = false;
+                    break;
                 }
+            }
+
+            if(isOk) {
+                min = Math.min(min, i);
                 sum += i;
             }
-            
         }
 
         if(sum == 0) {
             System.out.println(-1);
         } else {
-            System.out.println(sum + "\n" + min);
+            System.out.println(sum);
+            System.out.println(min);
         }
-    }
-
-    public static boolean isPrimeNumber(int a) {
-        
-        for(int i=2; i<=Math.sqrt(a); i++) {
-            if(a % i == 0) {
-                return false;
-            }
-        }
-
-        return true;
     }
 }
