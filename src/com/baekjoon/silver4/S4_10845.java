@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class S4_10845 {
 
@@ -18,19 +19,23 @@ public class S4_10845 {
 
 
         for(int i=0; i<n; i++) {
-            String[] input = br.readLine().split(" ");
+            StringTokenizer st = new StringTokenizer(br.readLine());
 
-            switch(input[0]) {
-                case "push" : queue.add(input[1]); break;
+            String cmd = st.nextToken();
+
+            switch(cmd) {
+                case "push" : queue.add(st.nextToken()); break;
                 case "pop" : pop(); break;
-                case "size" : sb.append(Integer.toString(queue.size())).append("\n"); break;
+                case "size" : sb.append(queue.size()).append("\n"); break;
                 case "empty" : empty(); break;
                 case "front" : front(); break;
                 case "back" : back(); break;
             }
         }
-
-        sb.deleteCharAt(sb.length()-1);
+        
+        // 아무것도 없을 때 StringBuilder의 마지막 값을 지우는 행동을 해서 StringIndexOutOfBounds Exception 발생
+        // StringBuilder에 \n 넣더라도 지우지 않고 바로 출력하자.
+        // sb.deleteCharAt(sb.length()-1);
         System.out.println(sb.toString());
     }
 
@@ -62,7 +67,8 @@ public class S4_10845 {
         if(queue.isEmpty()) {
             sb.append("-1").append("\n");
         } else {
-            for(int i=0; i<queue.size()-1; i++) {
+            int size = queue.size();
+            for(int i=0; i<size-1; i++) {
                 queue.add(queue.poll());
             }
             String temp = queue.poll();
