@@ -6,16 +6,16 @@ import java.util.StringTokenizer;
 
 public class S3_1063 {
 
-    static char[] king;
-    static char[] stone;
+    static String king;
+    static String stone;
     
     public static void main(String[] args) throws Exception {
         
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
-        king = st.nextToken().toCharArray();
-        stone = st.nextToken().toCharArray();
+        king = st.nextToken();
+        stone = st.nextToken();
 
         int n = Integer.parseInt(st.nextToken());
 
@@ -34,189 +34,248 @@ public class S3_1063 {
             }
         }
 
-        System.out.print(king[0]);
-        System.out.println(king[1]);
-        System.out.print(stone[0]);
-        System.out.println(stone[1]);
-    }
-
-    public static void R() {
-
-        char temp_king = (char)(king[0] + 1);
-        
-        if(temp_king <= 'H') {
-            if(temp_king == stone[0] && king[1] == stone[1]) {
-                char temp_stone = (char)(stone[0] + 1);
-                if(temp_stone <= 'H') {
-                    stone[0] = temp_stone;
-                    king[0] = temp_king;
-                }
-            } else {
-                king[0] = temp_king;
-            }
-        }
+        System.out.println(king);
+        System.out.println(stone);
 
     }
 
-    public static void L() {
-
-        char temp_king = (char)(king[0] - 1); 
-        
-        if(temp_king >= 'A') {
-            if(temp_king == stone[0] && king[1] == stone[1]) {
-                char temp_stone = (char)(stone[0] - 1);
-                if(temp_stone >= 'A') {
-                    stone[0] = temp_stone;
-                    king[0] = temp_king;
-                }
-            } else {
-                king[0] = temp_king;
-            }
-        }
-
+    static boolean isEqual(String king, String stone) {
+        return king.equals(stone)==true?true:false;
     }
 
-    public static void B() {
+    static boolean isOk(String str) {
 
-        char temp_king = (char)(king[1] - 1);
-
-        if(temp_king >= '1') {
-            if(king[0] == stone[0] && temp_king == stone[1]) {
-                char temp_stone = (char)(stone[1] - 1);
-                if(temp_stone >= '1') {
-                    stone[1] = temp_stone;
-                    king[1] = temp_king;
-                }
-            } else {
-                king[1] = temp_king;
-            }
+        if(str.charAt(0) == '@' || str.charAt(0) == 'I') {
+            return false;
         }
 
+        if(str.charAt(1) == '0' || str.charAt(1) == '9') {
+            return false;
+        }
+
+        return true;
     }
 
-    public static void T() {
+    static void R() {
+        char[] kingArr = king.toCharArray();
 
-        char temp_king = (char)(king[1] + 1);
+        StringBuilder sb = new StringBuilder();
+        String temp = sb.append((char)(kingArr[0] + 1)).append(kingArr[1]).toString();
 
-        if(temp_king <= '8') {
-            if(king[0] == stone[0] && temp_king == stone[1]) {
-                char temp_stone = (char)(stone[1] + 1);
-                if(temp_stone <= '8') {
-                    stone[1] = temp_stone;
-                    king[1] = temp_king;
-                }
-            } else {
-                king[1] = temp_king;
-            }
+        if(!isOk(temp)) {
+            return ;
         }
 
+        String temp_2 = "";
+
+        if(isEqual(temp, stone)) {
+            char[] stoneArr = stone.toCharArray();
+
+            sb = new StringBuilder();
+            temp_2 = sb.append((char)(stoneArr[0] + 1)).append(stoneArr[1]).toString();
+
+            if(!isOk(temp_2)) {
+                return ;
+            }
+            stone = temp_2;
+        }
+
+        king = temp;
     }
 
-    public static void RT() {
+    static void L() {
 
-        char temp_king_1 = (char)(king[0] + 1);
-        char temp_king_2 = (char)(king[1] + 1);
+        char[] kingArr = king.toCharArray();
 
-        if(temp_king_1 <= 'H' && temp_king_2 <= '8') {
+        StringBuilder sb = new StringBuilder();
+        String temp = sb.append((char)(kingArr[0] - 1)).append(kingArr[1]).toString();
 
-
-            if(temp_king_1 == stone[0] && temp_king_2 == stone[1]) {
-
-                char temp_stone_1 = (char)(stone[0] + 1);
-                char temp_stone_2 = (char)(stone[1] + 1);
-
-                if(temp_stone_1 <= 'H' && temp_stone_2 <= '8') {
-                    stone[0] = temp_stone_1;
-                    stone[1] = temp_stone_2;
-                    king[0] = temp_king_1;
-                    king[1] = temp_king_2;
-                }
-            } else {
-                king[0] = temp_king_1;
-                king[1] = temp_king_2;
-            }
+        if(!isOk(temp)) {
+            return ;
         }
 
+        String temp_2 = "";
+
+        if(isEqual(temp, stone)) {
+            char[] stoneArr = stone.toCharArray();
+
+            sb = new StringBuilder();
+            temp_2 = sb.append((char)(stoneArr[0] - 1)).append(stoneArr[1]).toString();
+
+            if(!isOk(temp_2)) {
+                return ;
+            }
+
+            stone = temp_2;
+        }
+
+        king = temp;
     }
 
-    public static void LT() {
+    static void B() {
+        char[] kingArr = king.toCharArray();
 
-        char temp_king_1 = (char)(king[0] - 1);
-        char temp_king_2 = (char)(king[1] + 1);
+        StringBuilder sb = new StringBuilder();
+        String temp = sb.append(kingArr[0]).append((char)(kingArr[1] - 1)).toString();
 
-        if(temp_king_1 >= 'A' && temp_king_2 <= '8') {
-
-            if(temp_king_1 == stone[0] && temp_king_2 == stone[1]) {
-
-                char temp_stone_1 = (char)(stone[0] - 1);
-                char temp_stone_2 = (char)(stone[1] + 1);
-
-                if(temp_stone_1 <= 'A' && temp_stone_2 <= '8') {
-                    stone[0] = temp_stone_1;
-                    stone[1] = temp_stone_2;
-                    king[0] = temp_king_1;
-                    king[1] = temp_king_2;
-                }
-
-            } else {
-                king[0] = temp_king_1;
-                king[1] = temp_king_2;
-            }
+        if(!isOk(temp)) {
+            return ;
         }
 
+        String temp_2 = "";
+
+        if(isEqual(temp, stone)) {
+            char[] stoneArr = stone.toCharArray();
+
+            sb = new StringBuilder();
+            temp_2 = sb.append(stoneArr[0]).append((char)(stoneArr[1] - 1)).toString();
+
+            if(!isOk(temp_2)) {
+                return ;
+            }
+
+            stone = temp_2;
+        }
+
+        king = temp;
+    }
+    
+    static void T() {
+        char[] kingArr = king.toCharArray();
+
+        StringBuilder sb = new StringBuilder();
+        String temp = sb.append(kingArr[0]).append((char)(kingArr[1] + 1)).toString();
+
+        if(!isOk(temp)) {
+            return ;
+        }
+
+        String temp_2 = "";
+
+        if(isEqual(temp, stone)) {
+            char[] stoneArr = stone.toCharArray();
+
+            sb = new StringBuilder();
+            temp_2 = sb.append(stoneArr[0]).append((char)(stoneArr[1] + 1)).toString();
+
+            if(!isOk(temp_2)) {
+                return ;
+            }
+
+            stone = temp_2;
+        }
+
+        king = temp;
     }
 
-    public static void RB() {
+    static void RT() {
+        char[] kingArr = king.toCharArray();
 
-        char temp_king_1 = (char)(king[0] + 1);
-        char temp_king_2 = (char)(king[1] - 1);
+        StringBuilder sb = new StringBuilder();
+        String temp = sb.append((char)(kingArr[0] + 1)).append((char)(kingArr[1] + 1)).toString();
 
-        if(temp_king_1 <= 'H' && temp_king_2 >= '1') {
-
-            if(temp_king_1 == stone[0] && temp_king_2 == stone[1]) {
-
-                char temp_stone_1 = (char)(stone[0] + 1);
-                char temp_stone_2 = (char)(stone[1] - 1);
-
-                if(temp_stone_1 <= 'H' && temp_stone_2 >= '1') {
-                    stone[0] = temp_stone_1;
-                    stone[1] = temp_stone_2;
-                    king[0] = temp_king_1;
-                    king[1] = temp_king_2;
-                }
-
-            } else {
-                king[0] = temp_king_1;
-                king[1] = temp_king_2;
-            }
+        if(!isOk(temp)) {
+            return ;
         }
 
+        String temp_2 = "";
+
+        if(isEqual(temp, stone)) {
+            char[] stoneArr = stone.toCharArray();
+
+            sb = new StringBuilder();
+            temp_2 = sb.append((char)(stoneArr[0] + 1)).append((char)(stoneArr[1] + 1)).toString();
+
+            if(!isOk(temp_2)) {
+                return ;
+            }
+            stone = temp_2;
+        }
+
+        king = temp;
     }
 
-    public static void LB() {
+    static void LT() {
 
-        char temp_king_1 = (char)(king[0] - 1);
-        char temp_king_2 = (char)(king[1] - 1);
+        char[] kingArr = king.toCharArray();
 
-        if(temp_king_1 >= 'A' && temp_king_2 >= '1') {
+        StringBuilder sb = new StringBuilder();
+        String temp = sb.append((char)(kingArr[0] - 1)).append((char)(kingArr[1] + 1)).toString();
 
-            if(temp_king_1 == stone[0] && temp_king_2 == stone[1]) {
-
-                char temp_stone_1 = (char)(stone[0] - 1);
-                char temp_stone_2 = (char)(stone[1] - 1);
-
-                if(temp_stone_1 >= 'A' && temp_stone_2 >= '1') {
-                    stone[0] = temp_stone_1;
-                    stone[1] = temp_stone_2;
-                    king[0] = temp_king_1;
-                    king[1] = temp_king_2;
-                }
-
-            } else {
-                king[0] = temp_king_1;
-                king[1] = temp_king_2;
-            }
+        if(!isOk(temp)) {
+            return ;
         }
 
+        String temp_2 = "";
+
+        if(isEqual(temp, stone)) {
+            char[] stoneArr = stone.toCharArray();
+
+            sb = new StringBuilder();
+            temp_2 = sb.append((char)(stoneArr[0] - 1)).append((char)(stoneArr[1] + 1)).toString();
+
+            if(!isOk(temp_2)) {
+                return ;
+            }
+            stone = temp_2;
+        }
+
+        king = temp;
+    }
+
+    static void RB() {
+
+        char[] kingArr = king.toCharArray();
+
+        StringBuilder sb = new StringBuilder();
+        String temp = sb.append((char)(kingArr[0] + 1)).append((char)(kingArr[1] - 1)).toString();
+
+        if(!isOk(temp)) {
+            return ;
+        }
+
+        String temp_2 = "";
+
+        if(isEqual(temp, stone)) {
+            char[] stoneArr = stone.toCharArray();
+
+            sb = new StringBuilder();
+            temp_2 = sb.append((char)(stoneArr[0] + 1)).append((char)(stoneArr[1] - 1)).toString();
+
+            if(!isOk(temp_2)) {
+                return ;
+            }
+            stone = temp_2;
+        }
+
+        king = temp;
+    }
+
+    static void LB() {
+
+        char[] kingArr = king.toCharArray();
+
+        StringBuilder sb = new StringBuilder();
+        String temp = sb.append((char)(kingArr[0] - 1)).append((char)(kingArr[1] - 1)).toString();
+
+        if(!isOk(temp)) {
+            return ;
+        }
+
+        String temp_2 = "";
+
+        if(isEqual(temp, stone)) {
+            char[] stoneArr = stone.toCharArray();
+
+            sb = new StringBuilder();
+            temp_2 = sb.append((char)(stoneArr[0] - 1)).append((char)(stoneArr[1] - 1)).toString();
+
+            if(!isOk(temp_2)) {
+                return ;
+            }
+            stone = temp_2;
+        }
+
+        king = temp;
     }
 }
